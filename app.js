@@ -284,7 +284,7 @@ app.get('/agenda/', async (request, response) => {
 
   if (isMatch(date, 'yyyy-MM-dd')) {
     const newDate = format(new Date(date), 'yyyy-MM-dd')
-    console.log(newDate)
+    
     const daterequestQuery = `
       SELECT 
         id AS id,
