@@ -4,6 +4,7 @@ const {open} = require('sqlite')
 const sqlite3 = require('sqlite3')
 const format = require('date-fns/format')
 const isMatch = require('date-fns/isMatch')
+const dbPath = path.join(__dirname, 'todoApplication.db')
 const app = express()
 app.use(express.json())
 
@@ -11,7 +12,7 @@ let db
 const initializeDBandServer = async () => {
   try {
     db = await open({
-      filename: path.join(__dirname, 'todoApplication.db'),
+      filename: dbPath,
       driver: sqlite3.Database,
     })
     app.listen(3000, () => {
